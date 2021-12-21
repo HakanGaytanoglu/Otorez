@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SrvShsYtkTml" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpsBinding_KBSServis_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://vatandas.jandarma.gov.tr/KBS_Tesis_Servis/SrvShsYtkTml.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://vatandas.jandarma.gov.tr/KBS_Tesis_Servis/SrvShsYtkTml.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://vatandas.jandarma.gov.tr/KBS_Tesis_Servis/SrvShsYtkTml.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/KBS_Tesis_Servis" />
+      <xsd:import schemaLocation="https://vatandas.jandarma.gov.tr/KBS_Tesis_Servis/SrvShsYtkTml.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/KBS_Model" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISrvShsYtkTml_MusteriKimlikNoGiris_InputMessage">
+    <wsdl:part name="parameters" element="tns:MusteriKimlikNoGiris" />
+  </wsdl:message>
+  <wsdl:message name="ISrvShsYtkTml_MusteriKimlikNoGiris_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MusteriKimlikNoGirisResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISrvShsYtkTml_MusteriKimlikNoCikis_InputMessage">
+    <wsdl:part name="parameters" element="tns:MusteriKimlikNoCikis" />
+  </wsdl:message>
+  <wsdl:message name="ISrvShsYtkTml_MusteriKimlikNoCikis_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MusteriKimlikNoCikisResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISrvShsYtkTml_MusteriKimlikNoGuncelle_InputMessage">
+    <wsdl:part name="parameters" element="tns:MusteriKimlikNoGuncelle" />
+  </wsdl:message>
+  <wsdl:message name="ISrvShsYtkTml_MusteriKimlikNoGuncelle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MusteriKimlikNoGuncelleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISrvShsYtkTml_MusteriKimlikNoListele_InputMessage">
+    <wsdl:part name="parameters" element="tns:MusteriKimlikNoListele" />
+  </wsdl:message>
+  <wsdl:message name="ISrvShsYtkTml_MusteriKimlikNoListele_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MusteriKimlikNoListeleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISrvShsYtkTml_MusteriYabanciGiris_InputMessage">
+    <wsdl:part name="parameters" element="tns:MusteriYabanciGiris" />
+  </wsdl:message>
+  <wsdl:message name="ISrvShsYtkTml_MusteriYabanciGiris_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MusteriYabanciGirisResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISrvShsYtkTml_MusteriYabanciCikis_InputMessage">
+    <wsdl:part name="parameters" element="tns:MusteriYabanciCikis" />
+  </wsdl:message>
+  <wsdl:message name="ISrvShsYtkTml_MusteriYabanciCikis_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MusteriYabanciCikisResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISrvShsYtkTml_MusteriYabanciGuncelle_InputMessage">
+    <wsdl:part name="parameters" element="tns:MusteriYabanciGuncelle" />
+  </wsdl:message>
+  <wsdl:message name="ISrvShsYtkTml_MusteriYabanciGuncelle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MusteriYabanciGuncelleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISrvShsYtkTml_MusteriYabanciListele_InputMessage">
+    <wsdl:part name="parameters" element="tns:MusteriYabanciListele" />
+  </wsdl:message>
+  <wsdl:message name="ISrvShsYtkTml_MusteriYabanciListele_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MusteriYabanciListeleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISrvShsYtkTml_PersonelKimlikNoGiris_InputMessage">
+    <wsdl:part name="parameters" element="tns:PersonelKimlikNoGiris" />
+  </wsdl:message>
+  <wsdl:message name="ISrvShsYtkTml_PersonelKimlikNoGiris_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PersonelKimlikNoGirisResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISrvShsYtkTml_PersonelKimlikNoCikis_InputMessage">
+    <wsdl:part name="parameters" element="tns:PersonelKimlikNoCikis" />
+  </wsdl:message>
+  <wsdl:message name="ISrvShsYtkTml_PersonelKimlikNoCikis_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PersonelKimlikNoCikisResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISrvShsYtkTml_PersonelKimlikNoGuncelle_InputMessage">
+    <wsdl:part name="parameters" element="tns:PersonelKimlikNoGuncelle" />
+  </wsdl:message>
+  <wsdl:message name="ISrvShsYtkTml_PersonelKimlikNoGuncelle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PersonelKimlikNoGuncelleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISrvShsYtkTml_PersonelKimlikNoListele_InputMessage">
+    <wsdl:part name="parameters" element="tns:PersonelKimlikNoListele" />
+  </wsdl:message>
+  <wsdl:message name="ISrvShsYtkTml_PersonelKimlikNoListele_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PersonelKimlikNoListeleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISrvShsYtkTml_PersonelYabanciGiris_InputMessage">
+    <wsdl:part name="parameters" element="tns:PersonelYabanciGiris" />
+  </wsdl:message>
+  <wsdl:message name="ISrvShsYtkTml_PersonelYabanciGiris_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PersonelYabanciGirisResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISrvShsYtkTml_PersonelYabanciCikis_InputMessage">
+    <wsdl:part name="parameters" element="tns:PersonelYabanciCikis" />
+  </wsdl:message>
+  <wsdl:message name="ISrvShsYtkTml_PersonelYabanciCikis_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PersonelYabanciCikisResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISrvShsYtkTml_PersonelYabanciGuncelle_InputMessage">
+    <wsdl:part name="parameters" element="tns:PersonelYabanciGuncelle" />
+  </wsdl:message>
+  <wsdl:message name="ISrvShsYtkTml_PersonelYabanciGuncelle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PersonelYabanciGuncelleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISrvShsYtkTml_PersonelYabanciListele_InputMessage">
+    <wsdl:part name="parameters" element="tns:PersonelYabanciListele" />
+  </wsdl:message>
+  <wsdl:message name="ISrvShsYtkTml_PersonelYabanciListele_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PersonelYabanciListeleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISrvShsYtkTml_ParametreListele_InputMessage">
+    <wsdl:part name="parameters" element="tns:ParametreListele" />
+  </wsdl:message>
+  <wsdl:message name="ISrvShsYtkTml_ParametreListele_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ParametreListeleResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ISrvShsYtkTml">
+    <wsdl:operation name="MusteriKimlikNoGiris">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISrvShsYtkTml/MusteriKimlikNoGiris" message="tns:ISrvShsYtkTml_MusteriKimlikNoGiris_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISrvShsYtkTml/MusteriKimlikNoGirisResponse" message="tns:ISrvShsYtkTml_MusteriKimlikNoGiris_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKimlikNoCikis">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISrvShsYtkTml/MusteriKimlikNoCikis" message="tns:ISrvShsYtkTml_MusteriKimlikNoCikis_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISrvShsYtkTml/MusteriKimlikNoCikisResponse" message="tns:ISrvShsYtkTml_MusteriKimlikNoCikis_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKimlikNoGuncelle">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISrvShsYtkTml/MusteriKimlikNoGuncelle" message="tns:ISrvShsYtkTml_MusteriKimlikNoGuncelle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISrvShsYtkTml/MusteriKimlikNoGuncelleResponse" message="tns:ISrvShsYtkTml_MusteriKimlikNoGuncelle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKimlikNoListele">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISrvShsYtkTml/MusteriKimlikNoListele" message="tns:ISrvShsYtkTml_MusteriKimlikNoListele_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISrvShsYtkTml/MusteriKimlikNoListeleResponse" message="tns:ISrvShsYtkTml_MusteriKimlikNoListele_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriYabanciGiris">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISrvShsYtkTml/MusteriYabanciGiris" message="tns:ISrvShsYtkTml_MusteriYabanciGiris_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISrvShsYtkTml/MusteriYabanciGirisResponse" message="tns:ISrvShsYtkTml_MusteriYabanciGiris_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriYabanciCikis">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISrvShsYtkTml/MusteriYabanciCikis" message="tns:ISrvShsYtkTml_MusteriYabanciCikis_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISrvShsYtkTml/MusteriYabanciCikisResponse" message="tns:ISrvShsYtkTml_MusteriYabanciCikis_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriYabanciGuncelle">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISrvShsYtkTml/MusteriYabanciGuncelle" message="tns:ISrvShsYtkTml_MusteriYabanciGuncelle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISrvShsYtkTml/MusteriYabanciGuncelleResponse" message="tns:ISrvShsYtkTml_MusteriYabanciGuncelle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriYabanciListele">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISrvShsYtkTml/MusteriYabanciListele" message="tns:ISrvShsYtkTml_MusteriYabanciListele_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISrvShsYtkTml/MusteriYabanciListeleResponse" message="tns:ISrvShsYtkTml_MusteriYabanciListele_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PersonelKimlikNoGiris">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISrvShsYtkTml/PersonelKimlikNoGiris" message="tns:ISrvShsYtkTml_PersonelKimlikNoGiris_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISrvShsYtkTml/PersonelKimlikNoGirisResponse" message="tns:ISrvShsYtkTml_PersonelKimlikNoGiris_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PersonelKimlikNoCikis">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISrvShsYtkTml/PersonelKimlikNoCikis" message="tns:ISrvShsYtkTml_PersonelKimlikNoCikis_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISrvShsYtkTml/PersonelKimlikNoCikisResponse" message="tns:ISrvShsYtkTml_PersonelKimlikNoCikis_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PersonelKimlikNoGuncelle">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISrvShsYtkTml/PersonelKimlikNoGuncelle" message="tns:ISrvShsYtkTml_PersonelKimlikNoGuncelle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISrvShsYtkTml/PersonelKimlikNoGuncelleResponse" message="tns:ISrvShsYtkTml_PersonelKimlikNoGuncelle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PersonelKimlikNoListele">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISrvShsYtkTml/PersonelKimlikNoListele" message="tns:ISrvShsYtkTml_PersonelKimlikNoListele_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISrvShsYtkTml/PersonelKimlikNoListeleResponse" message="tns:ISrvShsYtkTml_PersonelKimlikNoListele_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PersonelYabanciGiris">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISrvShsYtkTml/PersonelYabanciGiris" message="tns:ISrvShsYtkTml_PersonelYabanciGiris_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISrvShsYtkTml/PersonelYabanciGirisResponse" message="tns:ISrvShsYtkTml_PersonelYabanciGiris_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PersonelYabanciCikis">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISrvShsYtkTml/PersonelYabanciCikis" message="tns:ISrvShsYtkTml_PersonelYabanciCikis_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISrvShsYtkTml/PersonelYabanciCikisResponse" message="tns:ISrvShsYtkTml_PersonelYabanciCikis_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PersonelYabanciGuncelle">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISrvShsYtkTml/PersonelYabanciGuncelle" message="tns:ISrvShsYtkTml_PersonelYabanciGuncelle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISrvShsYtkTml/PersonelYabanciGuncelleResponse" message="tns:ISrvShsYtkTml_PersonelYabanciGuncelle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PersonelYabanciListele">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISrvShsYtkTml/PersonelYabanciListele" message="tns:ISrvShsYtkTml_PersonelYabanciListele_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISrvShsYtkTml/PersonelYabanciListeleResponse" message="tns:ISrvShsYtkTml_PersonelYabanciListele_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ParametreListele">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISrvShsYtkTml/ParametreListele" message="tns:ISrvShsYtkTml_ParametreListele_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISrvShsYtkTml/ParametreListeleResponse" message="tns:ISrvShsYtkTml_ParametreListele_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpsBinding_KBSServis" type="tns:ISrvShsYtkTml">
+    <wsp:PolicyReference URI="#BasicHttpsBinding_KBSServis_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="MusteriKimlikNoGiris">
+      <soap:operation soapAction="http://tempuri.org/ISrvShsYtkTml/MusteriKimlikNoGiris" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKimlikNoCikis">
+      <soap:operation soapAction="http://tempuri.org/ISrvShsYtkTml/MusteriKimlikNoCikis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKimlikNoGuncelle">
+      <soap:operation soapAction="http://tempuri.org/ISrvShsYtkTml/MusteriKimlikNoGuncelle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriKimlikNoListele">
+      <soap:operation soapAction="http://tempuri.org/ISrvShsYtkTml/MusteriKimlikNoListele" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriYabanciGiris">
+      <soap:operation soapAction="http://tempuri.org/ISrvShsYtkTml/MusteriYabanciGiris" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriYabanciCikis">
+      <soap:operation soapAction="http://tempuri.org/ISrvShsYtkTml/MusteriYabanciCikis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriYabanciGuncelle">
+      <soap:operation soapAction="http://tempuri.org/ISrvShsYtkTml/MusteriYabanciGuncelle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriYabanciListele">
+      <soap:operation soapAction="http://tempuri.org/ISrvShsYtkTml/MusteriYabanciListele" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PersonelKimlikNoGiris">
+      <soap:operation soapAction="http://tempuri.org/ISrvShsYtkTml/PersonelKimlikNoGiris" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PersonelKimlikNoCikis">
+      <soap:operation soapAction="http://tempuri.org/ISrvShsYtkTml/PersonelKimlikNoCikis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PersonelKimlikNoGuncelle">
+      <soap:operation soapAction="http://tempuri.org/ISrvShsYtkTml/PersonelKimlikNoGuncelle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PersonelKimlikNoListele">
+      <soap:operation soapAction="http://tempuri.org/ISrvShsYtkTml/PersonelKimlikNoListele" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PersonelYabanciGiris">
+      <soap:operation soapAction="http://tempuri.org/ISrvShsYtkTml/PersonelYabanciGiris" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PersonelYabanciCikis">
+      <soap:operation soapAction="http://tempuri.org/ISrvShsYtkTml/PersonelYabanciCikis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PersonelYabanciGuncelle">
+      <soap:operation soapAction="http://tempuri.org/ISrvShsYtkTml/PersonelYabanciGuncelle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PersonelYabanciListele">
+      <soap:operation soapAction="http://tempuri.org/ISrvShsYtkTml/PersonelYabanciListele" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParametreListele">
+      <soap:operation soapAction="http://tempuri.org/ISrvShsYtkTml/ParametreListele" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SrvShsYtkTml">
+    <wsdl:port name="BasicHttpsBinding_KBSServis" binding="tns:BasicHttpsBinding_KBSServis">
+      <soap:address location="https://vatandas.jandarma.gov.tr/KBS_Tesis_Servis/SrvShsYtkTml.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,607 @@
+﻿
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Otorez | Kolay rezervasyon yönetimi</title>
+
+    <link href="//fonts.googleapis.com/css?family=Spartan:400,500,600,700,900&display=swap" rel="stylesheet">
+
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="~/assets/client/css/style-starter.css">
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+        function onSubmit(token) {
+            document.getElementById("RegisterationForm").submit();
+            document.getElementById("Newsletter").submit();
+        }
+    </script>
+
+</head>
+<body>
+    <!--w3l-header-->
+    <header class="w3l-header-nav">
+        <!--/nav-->
+        <nav class="navbar navbar-expand-lg navbar-light fill px-lg-0 py-0 px-3">
+            <div class="container">
+                <a class="navbar-brand" href="/home/index">
+                    <img src="~/assets/client/images/hotels.png" alt="Your logo" style="height:35px;" /> Otorez
+                </a>
+                <!-- if logo is image enable this
+                <a class="navbar-brand" href="#index">
+                    <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
+                </a> -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/home/index">ANASAYFA</a>
+                        </li>
+                        <li class="nav-item services__active">
+                            <a class="nav-link" href="/home/services">SERVİSLER</a>
+                        </li>
+                        <li class="nav-item about__active">
+                            <a class="nav-link" href="/home/pricing">FİYATLANDIRMA</a>
+                        </li>
+
+                        <li class="nav-item contact__active">
+                            <a class="nav-link" href="/home/contact">İLETİŞİM</a>
+                        </li>
+                    </ul>
+                    <a href="/Home/Index#Register" class="ml-3 book btn btn-secondary btn-style">Kayıt Ol</a>
+                </div>
+
+            </div>
+        </nav>
+        <!--//nav-->
+    </header>
+    <!-- //w3l-header -->
+    <!-- main-slider -->
+    <section class="w3l-main-slider" id="home">
+        <div class="companies20-content">
+            <div class="owl-one owl-carousel owl-theme">
+                <div class="item">
+                    <li>
+                        <div class="slider-info banner-view bg bg2">
+                            <div class="banner-info">
+                                <div class="container">
+                                    <div class="banner-info-bg">
+                                        <h5>
+                                            Otel rezervasyonlarınızı tüm cihazlarınızdan kolayca yönetebileceğiniz bulut tabanlı otomasyon, Otorez!
+                                        </h5>
+                                        <a class="btn btn-style transparent-btn mt-sm-5 mt-4" href="Home/Services"> Servislerimiz</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </div>
+                <div class="item">
+                    <li>
+                        <div class="slider-info  banner-view banner-top1 bg bg2">
+                            <div class="banner-info">
+                                <div class="container">
+                                    <div class="banner-info-bg">
+                                        <h5>Otorez ile rezervasyonlarınızı kolayca yönetebileceğiniz servizlerimizi inceleyin!</h5>
+                                        <a class="btn btn-style transparent-btn mt-sm-5 mt-4" href="Home/Services">
+
+                                            Servislerimiz
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </div>
+                <div class="item">
+                    <li>
+                        <div class="slider-info banner-view banner-top2 bg bg2">
+                            <div class="banner-info">
+                                <div class="container">
+                                    <div class="banner-info-bg">
+                                        <h5>
+                                            Otorez bulut tabanlı rezervasyon sistemi fiyatlandırma ve kullanım bilgilerini inceleyin!
+                                        </h5>
+                                        <a class="btn btn-style transparent-btn mt-sm-5 mt-4" href="Home/Pricing">
+                                            Fiyatlandırma
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </div>
+                <div class="item">
+                    <li>
+                        <div class="slider-info banner-view banner-top3 bg bg2">
+                            <div class="banner-info">
+                                <div class="container">
+                                    <div class="banner-info-bg">
+                                        <h5>Otorez ile rezervasyonlarınızı kolayca yönetmeye hemen başlamak için kayıt olun!</h5>
+                                        <a class="btn btn-style transparent-btn mt-sm-5 mt-4" href="Home/Index#Register">
+                                            Kayıt Ol
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /main-slider -->
+    <section class="w3l-availability-form" >
+        <!-- /w3l-availability-form-section -->
+        <div class="w3l-availability-form-main py-5">
+            <div class="container pt-lg-3 pb-lg-5" id="Register">
+                <div class="forms-top">
+                    <div class="form-right">
+                        <div class="form-inner-cont">
+                            <h5 style="color:red; padding-bottom:20px;">@ViewBag.Success</h5>
+                            <h3 class="title-small">Otorez ile rezervasyonlarınızı kolayca yönetmeye hemen başlamak için kayıt olun!</h3>
+                            <h5 class="title-small" style="text-align:center; color:grey;">Bir hafta ücretsiz deneyin!</h5>
+                            <form action="/Home/Index" method="post" class="signin-form" id="RegisterationForm">
+                                <div class="row book-form">
+                                    <div class="form-input col-md-4 col-sm-6 mt-3">
+                                        <label>Ad</label>
+                                        <input type="text" name="FirstName" placeholder="" required />
+                                    </div>
+                                    <div class="form-input col-md-4 col-sm-6 mt-3">
+                                        <label>Soyad</label>
+                                        <input type="text" name="LastName" placeholder="" required />
+                                    </div>
+                                    <div class="form-input col-md-4 col-sm-6 mt-3">
+                                        <label>E-Posta</label>
+                                        <input type="email" name="EmailAddress" placeholder="" required />
+                                    </div>
+                                    <div class="form-input col-md-4 col-sm-6 mt-3">
+                                        <label>Telefon</label>
+                                        <input type="text" name="PhoneNumber" placeholder="" required />
+                                    </div>
+                                    <div class="form-input col-md-4 col-sm-6 mt-3">
+                                        <label>Otel Adı </label>
+                                        <input type="text" name="CompanyName" placeholder="" required />
+                                    </div>
+                                    <input type="hidden" name="RegistrationDate" value="@ViewBag.RegistrationDate" placeholder="">
+                                    <div class="bottom-btn col-md-4 col-sm-6 mt-3">
+                                        <label>Kayıt Ol </label>
+                                        <button class="g-recaptcha btn btn-style btn-primary w-100 px-2" data-sitekey="6Ldm6oQaAAAAAHV5eCANYjp1mhmA5cWjnJWKfoBQ" data-callback='onSubmit'>Kayıt Ol </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //w3l-availability-form-section -->
+    <!-- about -->
+    <section class="w3l-about py-5">
+        <div class="container py-sm-4">
+            <div class="row">
+                <div class="col-lg-6 about-left mb-md-0 mb-5">
+                    <h3 class="title-big">Otorez yeni nesil rezervasyon otomasyonu!</h3>
+                    <h5>Otorez ile zamandan ve maliyetten tasarruf edin</h5>
+                    <p class="mt-3">Otorez bulut tabanlı rezervasyon yönetim sistemi ile tanışıp tüm cihazlarınızdan rezervasyonlarınızı kolayca yönetmeye hemen başlayın. Basit ve kullanıcı dostu arayüz sayesinde tüm odalarınızın yönetimi her zaman ve her yerde yanınızda olsun. </p>
+                    <a href="/Home/Services" class="btn btn-style btn-primary mt-sm-5 mt-4">Servislerimiz</a>
+                </div>
+                <div class="col-lg-6 about-right position-relative mt-lg-0 mt-5">
+                    <img src="~/assets/client/images/bottom.jpg" alt="" class="img-fluid img-border mt-4" />
+                    <img src="~/assets/client/images/top.jpg" alt="" class="img-fluid position-absolute img-position" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //about -->
+    <div class="best-rooms py-5">
+        <div class="container py-lg-5 py-sm-4">
+            <h3 class="title-big text-center">Otorez ile tanışın! </h3>
+            <div class="ban-content-inf row py-lg-3">
+                <div class="maghny-gd-1 col-lg-6">
+                    <div class="maghny-grid">
+                        <figure class="effect-lily">
+                            <img class="img-fluid" src="~/assets/client/images/room1.jpg" alt="">
+                            <figcaption class="w3set-hny">
+                                <div>
+                                    <h4 class="top-text">
+                                        Kullanıcı dostu arayüz İle rezervasyonlarınızı kolayca
+                                        <span>yönetmeye başlayın!</span>
+                                    </h4>
+                                    <p>Otorez </p>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <div class="room-info">
+                            <h3 class="room-title"><a href="room-single">Tüm Cihazlarla Uyumlu</a></h3>
+                            <ul class="mb-3">
+                                <li><span class="fa fa-users"></span> 2 Misafir</li>
+                                <li><span class="fa fa-bed"></span> Double Oda</li>
+                                <li><span class="fa fa-bed"></span> Fiyat</li>
+                            </ul>
+                            <p>
+                                Nerede olursanız olun rezervasyonlarınızı yönetmek Otorez ile çok kolay. Bulut tabanlı ve mobil uyumlu tasarımı sayesinde Otorez'e tüm cihazlarınızdan kolayca erişebilirsiniz!
+                            </p>
+                            <a href="/Home/Index#Register" class="btn btn-style btn-primary mt-sm-4 mt-3">Kayıt Ol</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="maghny-gd-1 col-lg-6 mt-lg-0 mt-4">
+                    <div class="row">
+                        <div class="maghny-gd-1 col-6">
+                            <div class="maghny-grid">
+                                <figure class="effect-lily border-radius">
+                                    <img class="img-fluid" src="~/assets/client/images/room2.jpg" alt="" />
+                                    <figcaption>
+                                        <div class="homefig">
+                                            <h4>Raporlama   <span>arayüzü </span></h4>
+                                            <p>Otorez </p>
+                                        </div>
+
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="maghny-gd-1 col-6">
+                            <div class="maghny-grid">
+                                <figure class="effect-lily border-radius">
+                                    <img class="img-fluid" src="~/assets/client/images/room3.jpg" alt="" />
+                                    <figcaption>
+                                        <div class="homefig">
+                                            <h4>Ödeme takip  <span> servisi</span></h4>
+                                            <p>Otorez </p>
+                                        </div>
+
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="maghny-gd-1 col-6 mt-4">
+                            <div class="maghny-grid">
+                                <figure class="effect-lily border-radius">
+                                    <img class="img-fluid" src="~/assets/client/images/room4.jpg" alt="" />
+                                    <figcaption>
+                                        <div class="homefig">
+                                            <h4>Veri <span> Güvenliği</span></h4>
+                                            <p>Otorez </p>
+                                        </div>
+
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="maghny-gd-1 col-6 mt-4">
+                            <div class="maghny-grid">
+                                <figure class="effect-lily border-radius">
+                                    <img class="img-fluid" src="~/assets/client/images/room5.jpg" alt="" />
+                                    <figcaption>
+                                        <div class="homefig">
+                                            <h4>Uygun <span> Fiyatlandırma</span></h4>
+                                            <p>Otorez </p>
+                                        </div>
+
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="w3l-index3">
+        <div class="midd-w3 py-5">
+            <div class="container py-lg-5 py-md-3">
+                <div class="row">
+                    <div class="col-lg-6 left-wthree-img text-righ">
+                        <div class="position-relative">
+                            <img src="~/assets/client/images/videobg.jpg" alt="" class="img-fluid" />
+                            <!-- <a href="#small-dialog" class="popup-with-zoom-anim play-view text-center position-absolute">
+                                  <span class="video-play-icon">
+                                      <span class="fa fa-play"></span>
+                                  </span>
+                              </a>
+                            dialog itself, mfp-hide class is required to make dialog hidden
+                                                     <div id="small-dialog" class="zoom-anim-dialog mfp-hide">
+                                                         <iframe src="https://player.vimeo.com/video/246941769" allow="autoplay; fullscreen" allowfullscreen=""></iframe>
+                                                     </div>-->
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mt-lg-0 mt-5 about-right-faq align-self">
+                        <h6>Otorez Özellikleri</h6>
+                        <h3 class="title-big">Bulut tabanlı rezervasyon yönetim sistemi</h3>
+                        <p class="mt-3">
+                            Otorez ile zamandan, maliyetten ve efordan tasarruf edin, işinizi geliştirip büyütün.
+                        </p>
+                        <ul class="w3l-right-book mt-4">
+                            <li><span class="fa fa-check" aria-hidden="true"></span>Raporlama arayüzü ile doluluk, kazanç gibi önemli verilere hızlıca erişin</li>
+                            <li><span class="fa fa-check" aria-hidden="true"></span>Lokasyon bağımsız olarak tüm cihazlarınızdan anında erişim sağlayın</li>
+                            <li><span class="fa fa-check" aria-hidden="true"></span>Bulut tabanlı rezervasyon sisteminizi kurulum gerekmeden hemen kullanmaya başlayın</li>
+                            <li><span class="fa fa-check" aria-hidden="true"></span>Kolaylıkla oda bazlı müsaitlik sorgulama ve rezervasyon güncelleme</li>
+                            <li><span class="fa fa-check" aria-hidden="true"></span>Yedekleme arayüzü ile anında dosyalarınızı bilgisayarınıza indirin</li>
+                        </ul>
+                        <a href="/Home/Services" class="btn btn-style btn-primary mt-4">Tüm Özellikler</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- quotation -->
+    <div class="quotation py-5">
+        <div class="container py-xl-5 py-lg-3">
+            <div class="welcome-left text-center py-md-5 py-3">
+                <h3>Otorez ile işletmenizi geliştirmeye hemen başlayın! Kayıt olabilir yada bizimle iletişime geçebilirsiniz. </h3>
+                <a href="/Home/Index#Register" class="btn btn-style transparent-btn mt-sm-5 mt-4 mr-2">Kayıt Ol!</a>
+                <a href="/Home/Contact" class="btn btn-style btn-primary mt-sm-5 mt-4">İletişim</a>
+            </div>
+        </div>
+    </div>
+    <!-- //quotation -->
+
+    <section class="w3l-logos py-5">
+        <div class="container py-lg-3">
+            <div class="row">
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6 logo-view">
+                    <img src="~/assets/client/images/logo1.jpg" alt="company-logo" class="img-fluid" />
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6 logo-view">
+                    <img src="~/assets/client/images/logo2.jpg" alt="company-logo" class="img-fluid" />
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6 logo-view mt-sm-0 mt-4">
+                    <img src="~/assets/client/images/logo3.jpg" alt="company-logo" class="img-fluid" />
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6 logo-view mt-md-0 mt-4">
+                    <img src="~/assets/client/images/logo4.jpg" alt="company-logo" class="img-fluid" />
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6 logo-view mt-lg-0 mt-4">
+                    <img src="~/assets/client/images/logo2.jpg" alt="company-logo" class="img-fluid" />
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6 logo-view mt-lg-0 mt-4">
+                    <img src="~/assets/client/images/logo1.jpg" alt="company-logo" class="img-fluid" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //Footer -->
+    <section class="w3l-footer-29-main">
+        <div id="Newsletter">
+            <div class="footer-29 py-5">
+                <div class="container py-lg-4">
+                    <div class="row footer-top-29">
+                        <div class="col-lg-3 col-md-6 col-sm-8 footer-list-29 footer-1">
+                            <h6 class="footer-title-29">İletişim</h6>
+                            <ul>
+                                <li>
+                                    <p>
+                                        <span class="fa fa-map-marker"></span> İstanbul / Turkey
+                                    </p>
+                                </li>
+                                <!--  <li><a href=""><span class="fa fa-phone"></span> +(90)-543-879-9490</a></li>-->
+                                <li>
+                                    <a href="mailto:helpdesk@otorez.com" class="mail">
+                                        <span class="fa fa-envelope-open-o"></span>
+                                        helpdesk@otorez.com
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-2 col-md-6 col-sm-4 footer-list-29 footer-2 mt-sm-0 mt-5">
+
+                            <ul>
+                                <h6 class="footer-title-29">Linkler</h6>
+                                <li><a href="/Home/Index">AnaSayfa</a></li>
+                                <li><a href="/Home/Services">Servisler</a></li>
+                                <li><a href="/Home/Pricing"> Fiyatlandırma</a></li>
+                                <li><a href="/Home/Contact">İletişim</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-5 footer-list-29 footer-3 mt-lg-0 mt-5">
+                            <h6 class="footer-title-29">S.S.S</h6>
+                            <div class="footer-post mb-4">
+                                <a href="#">Sıkça Sorulan Sorular</a>
+                                <p class="small"><span class="fa fa-clock-o"></span> March 9, 2021</p>
+                            </div>
+                            <div class="footer-post">
+                                <a href="#">Dökümantasyon</a>
+                                <p class="small"><span class="fa fa-clock-o"></span> March 9, 2021</p>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-7 footer-list-29 footer-4 mt-lg-0 mt-5">
+                            <h6 class="footer-title-29">Promosyonlar </h6>
+                            <p>
+                                Bültenimize abone olarak promosyon fırsatlarından haberdar olun!
+                            </p>
+                                <form action="/Home/Index" class="subscribe" method="post" id="Newsletter">
+                                    <input type="email" name="LeadEmailAddress" placeholder="E-posta adresiniz" required="">
+                                    <button class="g-recaptcha" data-sitekey="6Ldm6oQaAAAAAHV5eCANYjp1mhmA5cWjnJWKfoBQ" data-callback='onSubmit'><span class="fa fa-envelope-o"></span></button>
+                                </form>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //Footer -->
+
+    <section class="w3l-footer-29-main w3l-copyright">
+        <div class="container">
+            <div class="row bottom-copies">
+                <p class="col-lg-8 copy-footer-29">
+                    © 2021 Otorez. All rights reserved | Designed by <a href="https://w3layouts.com" target="_blank">W3layouts</a>
+                </p>
+
+                <div class="col-lg-4 main-social-footer-29">
+                    <a href="#facebook" class="facebook"><span class="fa fa-facebook"></span></a>
+                    <a href="#twitter" class="twitter"><span class="fa fa-twitter"></span></a>
+                    <a href="#instagram" class="instagram"><span class="fa fa-instagram"></span></a>
+                    <a href="#linkedin" class="linkedin"><span class="fa fa-linkedin"></span></a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- move top -->
+        <button onclick="topFunction()" id="movetop" title="Go to top">
+            &#10548;
+        </button>
+        <script>
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function () {
+                scrollFunction()
+            };
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    document.getElementById("movetop").style.display = "block";
+                } else {
+                    document.getElementById("movetop").style.display = "none";
+                }
+            }
+
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+        </script>
+        <!-- /move top -->
+    </section>
+
+
+
+
+    <!-- Template JavaScript -->
+    <script src="~/assets/client/js/jquery-3.3.1.min.js"></script>
+
+    <script src="~/assets/client/js/owl.carousel.js"></script>
+    <!-- script for banner slider-->
+    <script>
+        $(document).ready(function () {
+            $('.owl-one').owlCarousel({
+                loop: true,
+                margin: 0,
+                nav: false,
+                responsiveClass: true,
+                autoplay: false,
+                autoplayTimeout: 5000,
+                autoplaySpeed: 1000,
+                autoplayHoverPause: false,
+                responsive: {
+                    0: {
+                        items: 1,
+                        nav: false
+                    },
+                    480: {
+                        items: 1,
+                        nav: false
+                    },
+                    667: {
+                        items: 1,
+                        nav: true
+                    },
+                    1000: {
+                        items: 1,
+                        nav: true
+                    }
+                }
+            })
+        })
+    </script>
+    <!-- //script -->
+    <!-- script for owlcarousel -->
+    <script>
+        $(document).ready(function () {
+            $('.owl-testimonial').owlCarousel({
+                loop: true,
+                margin: 0,
+                nav: true,
+                responsiveClass: true,
+                autoplay: false,
+                autoplayTimeout: 5000,
+                autoplaySpeed: 1000,
+                autoplayHoverPause: false,
+                responsive: {
+                    0: {
+                        items: 1,
+                        nav: false
+                    },
+                    480: {
+                        items: 1,
+                        nav: false
+                    },
+                    667: {
+                        items: 1,
+                        nav: true
+                    },
+                    1000: {
+                        items: 1,
+                        nav: true
+                    }
+                }
+            })
+        })
+    </script>
+    <!-- //script for owlcarousel -->
+    <script src="~/assets/client/js/jquery.magnific-popup.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.popup-with-zoom-anim').magnificPopup({
+                type: 'inline',
+
+                fixedContentPos: false,
+                fixedBgPos: true,
+
+                overflowY: 'auto',
+
+                closeBtnInside: true,
+                preloader: false,
+
+                midClick: true,
+                removalDelay: 300,
+                mainClass: 'my-mfp-zoom-in'
+            });
+
+            $('.popup-with-move-anim').magnificPopup({
+                type: 'inline',
+
+                fixedContentPos: false,
+                fixedBgPos: true,
+
+                overflowY: 'auto',
+
+                closeBtnInside: true,
+                preloader: false,
+
+                midClick: true,
+                removalDelay: 300,
+                mainClass: 'my-mfp-slide-bottom'
+            });
+        });
+    </script>
+
+
+    <!-- disable body scroll which navbar is in active -->
+    <script>
+        $(function () {
+            $('.navbar-toggler').click(function () {
+                $('body').toggleClass('noscroll');
+            })
+        });
+    </script>
+    <!-- disable body scroll which navbar is in active -->
+
+    <script src="~/assets/client/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

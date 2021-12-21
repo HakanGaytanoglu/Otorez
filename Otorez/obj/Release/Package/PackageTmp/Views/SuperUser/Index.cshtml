@@ -1,0 +1,454 @@
+﻿
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Otorez | Super User Panel</title>
+
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="~/assets/admin/css/style-starter.css">
+
+    <!-- google fonts -->
+    <link href="//fonts.googleapis.com/css?family=Nunito:300,400,600,700,800,900&display=swap" rel="stylesheet">
+</head>
+
+<body class="sidebar-menu-collapsed">
+    <div class="se-pre-con"></div>
+    <section>
+        <!-- sidebar menu start -->
+        <div class="sidebar-menu sticky-sidebar-menu">
+
+            <!-- logo start -->
+            <div class="logo">
+                <h1><a href="index">Otorez</a></h1>
+            </div>
+
+            <!-- if logo is image enable this -->
+            <!-- image logo --
+            <div class="logo">
+              <a href="index.html">
+                <img src="image-path" alt="Your logo" title="Your logo" class="img-fluid" style="height:35px;" />
+              </a>
+            </div>
+            <!-- //image logo -->
+
+            <div class="logo-icon text-center">
+                <a href="/superuser/index" title="logo"><img src="~/assets/admin/images/logo.png" alt="logo-icon"> </a>
+            </div>
+            <!-- //logo end -->
+
+            <div class="sidebar-menu-inner">
+
+                <!-- sidebar nav start -->
+                <ul class="nav nav-pills nav-stacked custom-nav">
+                    <li class="active">
+                        <a href="/superuser/index"><i class="fa fa-tachometer"></i><span> Raporlar</span></a>
+                    </li>
+                    <li class="menu-list">
+                        <a href="#">
+                            <i class="fa fa-cogs"></i>
+                            <span>Hesap İşlemleri <i class="lnr lnr-chevron-right"></i></span>
+                        </a>
+                        <ul class="sub-menu-list">
+                            <li><a href="/superuser/createaccount">Hesap Yarat</a> </li>
+                            <li><a href="/superuser/updateaccount">Hesap Güncelle</a></li>
+                            <li><a href="/superuser/payments">Ödeme Takip</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/superuser/export"><i class="fa fa-table"></i> <span>Yedekleme</span></a></li>
+                </ul>
+                <!-- //sidebar nav end -->
+                <!-- toggle button start -->
+                <a class="toggle-btn">
+                    <i class="fa fa-angle-double-left menu-collapsed__left"><span>Kapat</span></i>
+                    <i class="fa fa-angle-double-right menu-collapsed__right"></i>
+                </a>
+                <!-- //toggle button end -->
+            </div>
+        </div>
+        <!-- //sidebar menu end -->
+        <!-- header-starts -->
+        <div class="header sticky-header">
+
+            <!-- notification menu start -->
+            <div class="menu-right">
+                <div class="navbar user-panel-top">
+
+                    <div class="user-dropdown-details d-flex">
+                        <div class="profile_details_left">
+                            <ul class="nofitications-dropdown">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                        <i class="fa fa-bell-o"></i><span class="badge blue">@ViewBag.PendingPaymentCount</span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <div class="notification_header">
+                                                <h3 style="color:red;"> @ViewBag.PendingPaymentCount adet ödemesi tamamlanmamış hesap var !</h3>
+                                            </div>
+                                        </li>
+
+                                        <li>
+                                            <div class="notification_bottom">
+                                                <a href="/superuser/payments" class="bg-primary">Tüm ödemesi tamamlanmamış hesapları gör!</a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="profile_details">
+                            <ul>
+                                <li class="dropdown profile_details_drop">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="dropdownMenu3" aria-haspopup="true"
+                                       aria-expanded="false">
+                                        <div class="profile_img">
+                                            <img src="~/Assets/Admin/images/avatar.png" class="rounded-circle" alt="" />
+                                            <div class="user-active">
+                                                <span></span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <ul class="dropdown-menu drp-mnu" aria-labelledby="dropdownMenu3">
+                                        <li class="user-info">
+                                            <h5 class="user-name">@ViewBag.CompanyName</h5>
+                                            <span class="status">@ViewBag.EmailAddress</span>
+                                        </li>
+                                       
+                                        <li class="logout"> <a href="/superuser/logout"><i class="fa fa-power-off"></i> Çıkış</a> </li>
+
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!--notification menu end -->
+        </div>
+        <!-- //header-ends -->
+        <!-- main content start -->
+        <div class="main-content">
+
+            <!-- content -->
+            <div class="container-fluid content-top-gap">
+
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb my-breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Anasayfa</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Raporlar</li>
+                    </ol>
+                </nav>
+                <div class="welcome-msg pt-3 pb-4">
+                    <h1>Merhaba <span class="text-primary">@ViewBag.FirstName</span>, Otorez SuperUser paneline hoşgeldin..</h1>
+                    <p>Raporlarını inceleyerek işletmenin mevcut durumu ile ilgili bilgi sahibi olup, gerekli geliştirmeler için öngörüler edinebilirsin!</p>
+                </div>
+
+                <!--DatePicker-->
+                <!-- forms 1 -->
+                <div class="card card_border py-2 mb-4">
+                    <div class="card-body">
+                        <h3 class="card__title position-absolute">Raporlarını görüntülemek istediğiniz tarih aralığını seçiniz..</h3><br><br>
+                        <form method="post">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="ReportStart" class="input__label">Rapor başlangıç tarihi</label>
+                                    <input type="date" class="form-control input-style" name="ReportStart"
+                                           placeholder="ReportStart" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="ReportEnd" class="input__label">Rapor bitiş tarihi</label>
+                                    <input type="date" class="form-control input-style" name="ReportEnd"
+                                           placeholder="ReportEnd" required>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-style mt-4">Rapor oluştur</button>
+                        </form>
+                    </div>
+                </div>
+                <!-- //forms 1 -->
+                <!--DatePicker-->
+                <!-- statistics data -->
+                <div class="statistics">
+
+
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="row">
+                                <div class="col-sm-12  statistics-grid">
+                                    <div class="card card_border border-primary-top p-4">
+                                        <h3 class="text-primary number"> </h3>
+                                        <p class="rtat-text">@ViewBag.ReportStart @ViewBag.ReportEnd  @ViewBag.ReportTitle </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="row">
+                        <div class="col-xl-6 pr-xl-2">
+                            <div class="row">
+                              
+                                <div class="col-sm-6 pl-sm-2 statistics-grid">
+                                    <div class="card card_border border-primary-top p-4">
+                                        <i class="lnr lnr-eye"> </i>
+                                        <h3 class="text-secondary number"> @ViewBag.TotalAccounts</h3>
+                                        <p class="stat-text">Toplam hesap sayısı</p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 pl-sm-2 statistics-grid">
+                                    <div class="card card_border border-primary-top p-4">
+                                        <i class="lnr lnr-users"> </i>
+                                        <h3 class="text-secondary number"> @ViewBag.TotalLiveAccounts</h3>
+                                        <p class="stat-text">Canlı hesap sayısı </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 pl-xl-2">
+                            <div class="row">
+                                <div class="col-sm-6 pr-sm-2 statistics-grid">
+                                    <div class="card card_border border-primary-top p-4">
+                                        <i class="lnr lnr-briefcase"> </i>
+                                        <h3 class="text-success number">@ViewBag.TotalDemoAccounts</h3>
+                                        <p class="stat-text">Demo hesap sayısı</p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 pl-sm-2 statistics-grid">
+                                    <div class="card card_border border-primary-top p-4">
+                                        <i class="lnr lnr-pie-chart"> </i>
+                                        <h3 class="text-danger number">@ViewBag.PaymentAmount</h3>
+                                        <p class="stat-text">Toplam Ciro</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- //statistics data -->
+                <!-- charts -->
+                <div class="chart">
+                    <div class="row">
+                        <div class="col-lg-6 pr-lg-2 chart-grid">
+                            <div class="card text-center card_border">
+                                <div class="card-header chart-grid__header">
+                                  Hesap İptal Oranı
+                                </div>
+                                <div class="card-body">
+                                    <!-- bar chart -->
+                                    <div id="container">
+                                        <canvas id="barchart"></canvas>
+                                    </div>
+                                    <!-- //bar chart -->
+                                </div>
+                                <div class="card-footer text-muted chart-grid__footer">
+                                    @ViewBag.CancelledPercentage
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 pl-lg-2 chart-grid">
+                            <div class="card text-center card_border">
+                                <div class="card-header chart-grid__header">
+                                   Demo / Canlı Hesap Oranı
+                                </div>
+                                <div class="card-body">
+                                    <!-- line chart -->
+                                    <div id="container">
+                                        <canvas id="linechart"></canvas>
+                                    </div>
+                                    <!-- //line chart -->
+                                </div>
+                                <div class="card-footer text-muted chart-grid__footer">
+                                    @ViewBag.DemoLivePercentage
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- //charts -->
+
+
+            </div>
+            <!-- //content -->
+        </div>
+        <!-- main content end-->
+    </section>
+    <!--footer section start-->
+    <footer class="dashboard">
+        <p>
+            &copy 2021 Otorez. All Rights Reserved | Design by <a href="https://w3layouts.com/" target="_blank"
+                                                                  class="text-primary">W3layouts.</a>
+        </p>
+    </footer>
+    <!--footer section end-->
+    <!-- move top -->
+    <button onclick="topFunction()" id="movetop" class="bg-primary" title="Go to top">
+        <span class="fa fa-angle-up"></span>
+    </button>
+    <script>
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("movetop").style.display = "block";
+            } else {
+                document.getElementById("movetop").style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+    <!-- /move top -->
+
+
+    <script src="~/assets/admin/js/jquery-3.3.1.min.js"></script>
+    <script src="~/assets/admin/js/jquery-1.10.2.min.js"></script>
+
+    <!-- chart js -->
+    <script src="~/assets/admin/js/Chart.min.js"></script>
+    <script src="~/assets/admin/js/utils.js"></script>
+    <!-- //chart js -->
+    <!-- Different scripts of charts.  Ex.Barchart, Linechart -->
+    <!-- //Bar Chart -->
+    <script>
+        new Chart(document.getElementById("barchart"), {
+            type: 'bar',
+            data: {
+                labels: ['@ViewBag.ReportStart @ViewBag.ReportEnd'],
+                datasets: [{
+                    data: [@ViewBag.TotalAccounts, 70],
+                    label: 'Toplam Hesap Sayısı',
+                    backgroundColor: "#4755AB",
+                    borderWidth: 1,
+                }, {
+                    data: [@ViewBag.TotalCancelledAccounts, 70],
+                    label: 'İptal Olan Hesap Sayısı',
+                    backgroundColor: "#E7EDF6",
+                    borderWidth: 1,
+                }]
+            },
+            options: {
+                responsive: true,
+                legend: {
+                    position: 'top',
+                },
+            }
+        });
+
+
+    </script>
+    <!-- //Line Chart -->
+    <script>
+        new Chart(document.getElementById("linechart"), {
+            type: 'line',
+            data: {
+                labels: ['', ''],
+                datasets: [{
+                    label: 'Canlı Hesap Sayısı',
+                    backgroundColor: window.chartColors.navy,
+                    borderColor: window.chartColors.navy,
+                    data: [0, @ViewBag.TotalLiveAccounts],
+                    fill: false,
+                }, {
+                        label: 'Demo Hesap Sayısı',
+                    fill: false,
+                    backgroundColor: window.chartColors.purple,
+                    borderColor: window.chartColors.purple,
+                        data: [0, @ViewBag.TotalDemoAccounts],
+                }]
+            },
+            options: {
+                responsive: true,
+                // title: {
+                // 	display: true,
+                // 	text: 'Chart.js Line Chart'
+                // },
+                tooltips: {
+                    mode: 'index',
+                    intersect: false,
+                },
+                hover: {
+                    mode: 'nearest',
+                    intersect: true
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: '@ViewBag.ReportStart @ViewBag.ReportEnd'
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Müsait Geceleme'
+                        }
+                    }]
+                }
+            }
+        });
+
+
+
+    </script>
+    <!-- //Different scripts of charts.  Ex.Barchart, Linechart -->
+
+
+    <script src="~/assets/admin/js/jquery.nicescroll.js"></script>
+    <script src="~/assets/admin/js/scripts.js"></script>
+
+    <!-- close script -->
+    <script>
+        var closebtns = document.getElementsByClassName("close-grid");
+        var i;
+
+        for (i = 0; i < closebtns.length; i++) {
+            closebtns[i].addEventListener("click", function () {
+                this.parentElement.style.display = 'none';
+            });
+        }
+    </script>
+    <!-- //close script -->
+    <!-- disable body scroll when navbar is in active -->
+    <script>
+        $(function () {
+            $('.sidebar-menu-collapsed').click(function () {
+                $('body').toggleClass('noscroll');
+            })
+        });
+    </script>
+    <!-- disable body scroll when navbar is in active -->
+    <!-- loading-gif Js -->
+    <script src="~/assets/admin/js/modernizr.js"></script>
+    <script>
+        $(window).load(function () {
+            // Animate loader off screen
+            $(".se-pre-con").fadeOut("slow");;
+        });
+    </script>
+    <!--// loading-gif Js -->
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/assets/admin/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

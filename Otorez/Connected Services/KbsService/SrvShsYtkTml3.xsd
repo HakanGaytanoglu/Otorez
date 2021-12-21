@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://vatandas.jandarma.gov.tr/KBS_Tesis_Servis/SrvShsYtkTml.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/KBS_Tesis_Servis" />
+  <xs:import schemaLocation="https://vatandas.jandarma.gov.tr/KBS_Tesis_Servis/SrvShsYtkTml.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/KBS_Model" />
+  <xs:element name="MusteriKimlikNoGiris">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="KullaniciTC" type="xs:long" />
+        <xs:element minOccurs="0" name="TssKod" type="xs:long" />
+        <xs:element minOccurs="0" name="Sifre" nillable="true" type="xs:string" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/KBS_Tesis_Servis" minOccurs="0" name="musteri" nillable="true" type="q1:MusteriKimlikNoGirisTalep" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MusteriKimlikNoGirisResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/KBS_Tesis_Servis" minOccurs="0" name="MusteriKimlikNoGirisResult" nillable="true" type="q2:MusteriKimlikNoGirisSonuc" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MusteriKimlikNoCikis">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="KullaniciTC" type="xs:long" />
+        <xs:element minOccurs="0" name="TssKod" type="xs:long" />
+        <xs:element minOccurs="0" name="Sifre" nillable="true" type="xs:string" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/KBS_Tesis_Servis" minOccurs="0" name="musteri" nillable="true" type="q3:MusteriKimlikNoCikisTalep" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MusteriKimlikNoCikisResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/KBS_Tesis_Servis" minOccurs="0" name="MusteriKimlikNoCikisResult" nillable="true" type="q4:Sonuc" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MusteriKimlikNoGuncelle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="KullaniciTC" type="xs:long" />
+        <xs:element minOccurs="0" name="TssKod" type="xs:long" />
+        <xs:element minOccurs="0" name="Sifre" nillable="true" type="xs:string" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/KBS_Tesis_Servis" minOccurs="0" name="musteri" nillable="true" type="q5:MusteriKimlikNoGuncelleTalep" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MusteriKimlikNoGuncelleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/KBS_Tesis_Servis" minOccurs="0" name="MusteriKimlikNoGuncelleResult" nillable="true" type="q6:Sonuc" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MusteriKimlikNoListele">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="KullaniciTC" type="xs:long" />
+        <xs:element minOccurs="0" name="TssKod" type="xs:long" />
+        <xs:element minOccurs="0" name="Sifre" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MusteriKimlikNoListeleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/KBS_Tesis_Servis" minOccurs="0" name="MusteriKimlikNoListeleResult" nillable="true" type="q7:MusteriKimlikNoListe" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MusteriYabanciGiris">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="KullaniciTC" type="xs:long" />
+        <xs:element minOccurs="0" name="TssKod" type="xs:long" />
+        <xs:element minOccurs="0" name="Sifre" nillable="true" type="xs:string" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/KBS_Tesis_Servis" minOccurs="0" name="musteri" nillable="true" type="q8:MusteriYabanciGirisTalep" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MusteriYabanciGirisResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/KBS_Tesis_Servis" minOccurs="0" name="MusteriYabanciGirisResult" nillable="true" type="q9:MusteriYabanciGirisSonuc" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MusteriYabanciCikis">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="KullaniciTC" type="xs:long" />
+        <xs:element minOccurs="0" name="TssKod" type="xs:long" />
+        <xs:element minOccurs="0" name="Sifre" nillable="true" type="xs:string" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/KBS_Tesis_Servis" minOccurs="0" name="musteri" nillable="true" type="q10:MusteriYabanciCikisTalep" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MusteriYabanciCikisResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/KBS_Tesis_Servis" minOccurs="0" name="MusteriYabanciCikisResult" nillable="true" type="q11:Sonuc" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MusteriYabanciGuncelle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="KullaniciTC" type="xs:long" />
+        <xs:element minOccurs="0" name="TssKod" type="xs:long" />
+        <xs:element minOccurs="0" name="Sifre" nillable="true" type="xs:string" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/KBS_Tesis_Servis" minOccurs="0" name="musteri" nillable="true" type="q12:MusteriYabanciGuncelleTalep" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MusteriYabanciGuncelleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/KBS_Tesis_Servis" minOccurs="0" name="MusteriYabanciGuncelleResult" nillable="true" type="q13:Sonuc" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MusteriYabanciListele">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="KullaniciTC" type="xs:long" />
+        <xs:element minOccurs="0" name="TssKod" type="xs:long" />
+        <xs:element minOccurs="0" name="Sifre" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MusteriYabanciListeleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/KBS_Tesis_Servis" minOccurs="0" name="MusteriYabanciListeleResult" nillable="true" type="q14:MusteriYabanciListe" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PersonelKimlikNoGiris">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="KullaniciTC" type="xs:long" />
+        <xs:element minOccurs="0" name="TssKod" type="xs:long" />
+        <xs:element minOccurs="0" name="Sifre" nillable="true" type="xs:string" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/KBS_Tesis_Servis" minOccurs="0" name="personel" nillable="true" type="q15:PersonelKimlikNoGirisTalep" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PersonelKimlikNoGirisResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/KBS_Tesis_Servis" minOccurs="0" name="PersonelKimlikNoGirisResult" nillable="true" type="q16:PersonelKimlikNoGirisSonuc" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PersonelKimlikNoCikis">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="KullaniciTC" type="xs:long" />
+        <xs:element minOccurs="0" name="TssKod" type="xs:long" />
+        <xs:element minOccurs="0" name="Sifre" nillable="true" type="xs:string" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/KBS_Tesis_Servis" minOccurs="0" name="personel" nillable="true" type="q17:PersonelKimlikNoCikisTalep" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PersonelKimlikNoCikisResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/KBS_Tesis_Servis" minOccurs="0" name="PersonelKimlikNoCikisResult" nillable="true" type="q18:Sonuc" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PersonelKimlikNoGuncelle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="KullaniciTC" type="xs:long" />
+        <xs:element minOccurs="0" name="TssKod" type="xs:long" />
+        <xs:element minOccurs="0" name="Sifre" nillable="true" type="xs:string" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/KBS_Tesis_Servis" minOccurs="0" name="personel" nillable="true" type="q19:PersonelKimlikNoGuncelleTalep" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PersonelKimlikNoGuncelleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/KBS_Tesis_Servis" minOccurs="0" name="PersonelKimlikNoGuncelleResult" nillable="true" type="q20:Sonuc" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PersonelKimlikNoListele">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="KullaniciTC" type="xs:long" />
+        <xs:element minOccurs="0" name="TssKod" type="xs:long" />
+        <xs:element minOccurs="0" name="Sifre" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PersonelKimlikNoListeleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/KBS_Tesis_Servis" minOccurs="0" name="PersonelKimlikNoListeleResult" nillable="true" type="q21:PersonelKimlikNoListe" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PersonelYabanciGiris">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="KullaniciTC" type="xs:long" />
+        <xs:element minOccurs="0" name="TssKod" type="xs:long" />
+        <xs:element minOccurs="0" name="Sifre" nillable="true" type="xs:string" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/KBS_Tesis_Servis" minOccurs="0" name="personel" nillable="true" type="q22:PersonelYabanciGirisTalep" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PersonelYabanciGirisResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/KBS_Tesis_Servis" minOccurs="0" name="PersonelYabanciGirisResult" nillable="true" type="q23:PersonelYabanciGirisSonuc" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PersonelYabanciCikis">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="KullaniciTC" type="xs:long" />
+        <xs:element minOccurs="0" name="TssKod" type="xs:long" />
+        <xs:element minOccurs="0" name="Sifre" nillable="true" type="xs:string" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/KBS_Tesis_Servis" minOccurs="0" name="personel" nillable="true" type="q24:PersonelYabanciCikisTalep" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PersonelYabanciCikisResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/KBS_Tesis_Servis" minOccurs="0" name="PersonelYabanciCikisResult" nillable="true" type="q25:Sonuc" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PersonelYabanciGuncelle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="KullaniciTC" type="xs:long" />
+        <xs:element minOccurs="0" name="TssKod" type="xs:long" />
+        <xs:element minOccurs="0" name="Sifre" nillable="true" type="xs:string" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/KBS_Tesis_Servis" minOccurs="0" name="personel" nillable="true" type="q26:PersonelYabanciGuncelleTalep" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PersonelYabanciGuncelleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/KBS_Tesis_Servis" minOccurs="0" name="PersonelYabanciGuncelleResult" nillable="true" type="q27:Sonuc" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PersonelYabanciListele">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="KullaniciTC" type="xs:long" />
+        <xs:element minOccurs="0" name="TssKod" type="xs:long" />
+        <xs:element minOccurs="0" name="Sifre" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PersonelYabanciListeleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/KBS_Tesis_Servis" minOccurs="0" name="PersonelYabanciListeleResult" nillable="true" type="q28:PersonelYabanciListe" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ParametreListele">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="KullaniciTC" type="xs:long" />
+        <xs:element minOccurs="0" name="TssKod" type="xs:long" />
+        <xs:element minOccurs="0" name="Sifre" nillable="true" type="xs:string" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/KBS_Model" minOccurs="0" name="parametreTuru" type="q29:snfEnum.ServisUstKodParametreler" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ParametreListeleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/KBS_Tesis_Servis" minOccurs="0" name="ParametreListeleResult" nillable="true" type="q30:Parametreler" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

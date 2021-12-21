@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/KBS_Tesis_Servis" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/KBS_Tesis_Servis" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://vatandas.jandarma.gov.tr/KBS_Tesis_Servis/SrvShsYtkTml.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/KBS_Model" />
+  <xs:import schemaLocation="https://vatandas.jandarma.gov.tr/KBS_Tesis_Servis/SrvShsYtkTml.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="MusteriKimlikNoGirisTalep">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GRSTRH" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ILERITARIHLI" type="xs:boolean" />
+      <xs:element minOccurs="0" name="KIMLIKNO" type="xs:long" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/KBS_Model" minOccurs="0" name="KULLANIMSEKLI" type="q1:snfEnum.KonaklayanKullanimSekli" />
+      <xs:element minOccurs="0" name="ODANO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PLKNO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TELNO" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/KBS_Model" minOccurs="0" name="ULKKOD" type="q2:snfEnum.Ulkeler" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MusteriKimlikNoGirisTalep" nillable="true" type="tns:MusteriKimlikNoGirisTalep" />
+  <xs:complexType name="MusteriKimlikNoGirisSonuc">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ADI" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ANAADI" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BABADI" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GRSTRH" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="KIMLIKNO" type="xs:long" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/KBS_Model" minOccurs="0" name="KULLANIMSEKLI" type="q3:snfEnum.KonaklayanKullanimSekli" />
+      <xs:element minOccurs="0" name="ODANO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PLKNO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SOYADI" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TELNO" nillable="true" type="xs:string" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/KBS_Model" minOccurs="0" name="ULKKOD" type="q4:snfEnum.Ulkeler" />
+      <xs:element minOccurs="0" name="sonuc" nillable="true" type="tns:Sonuc" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MusteriKimlikNoGirisSonuc" nillable="true" type="tns:MusteriKimlikNoGirisSonuc" />
+  <xs:complexType name="Sonuc">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Basarili" type="xs:boolean" />
+      <xs:element minOccurs="0" name="HataKodu" type="tns:SrvShsYtkTml.Kodlar" />
+      <xs:element minOccurs="0" name="Mesaj" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Sonuc" nillable="true" type="tns:Sonuc" />
+  <xs:simpleType name="SrvShsYtkTml.Kodlar">
+    <xs:list>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="BILINMEYEN">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Basarili">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">100</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="KayitBulunamadi">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">101</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="YeniKayitBasarisiz">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">102</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="GuncellemeBasarisiz">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">103</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="SilmeBasarisiz">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">104</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="VTHatasi">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">105</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="GenelHata">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">106</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="GirdiHatasi">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">107</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="YetkiHatasi">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">108</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="KimlikDogrulamaHatasi">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">109</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:list>
+  </xs:simpleType>
+  <xs:element name="SrvShsYtkTml.Kodlar" nillable="true" type="tns:SrvShsYtkTml.Kodlar" />
+  <xs:complexType name="MusteriKimlikNoCikisTalep">
+    <xs:sequence>
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/KBS_Model" minOccurs="0" name="CKSTIP" type="q5:snfEnum.KonaklayanCikisTurleri" />
+      <xs:element minOccurs="0" name="CKSTRH" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="KIMLIKNO" nillable="true" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MusteriKimlikNoCikisTalep" nillable="true" type="tns:MusteriKimlikNoCikisTalep" />
+  <xs:complexType name="MusteriKimlikNoGuncelleTalep">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GRSTRH" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ILERITARIHLI" type="xs:boolean" />
+      <xs:element minOccurs="0" name="KIMLIKNO" type="xs:long" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/KBS_Model" minOccurs="0" name="KULLANIMSEKLI" type="q6:snfEnum.KonaklayanKullanimSekli" />
+      <xs:element minOccurs="0" name="ODANO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PLKNO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TELNO" nillable="true" type="xs:string" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/KBS_Model" minOccurs="0" name="ULKKOD" type="q7:snfEnum.Ulkeler" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MusteriKimlikNoGuncelleTalep" nillable="true" type="tns:MusteriKimlikNoGuncelleTalep" />
+  <xs:complexType name="MusteriKimlikNoListe">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="mItems" nillable="true" type="tns:ArrayOfMusteriKimlikNoGirisSonuc" />
+      <xs:element minOccurs="0" name="sonuc" nillable="true" type="tns:Sonuc" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MusteriKimlikNoListe" nillable="true" type="tns:MusteriKimlikNoListe" />
+  <xs:complexType name="ArrayOfMusteriKimlikNoGirisSonuc">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MusteriKimlikNoGirisSonuc" nillable="true" type="tns:MusteriKimlikNoGirisSonuc" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMusteriKimlikNoGirisSonuc" nillable="true" type="tns:ArrayOfMusteriKimlikNoGirisSonuc" />
+  <xs:complexType name="MusteriYabanciGirisTalep">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ADI" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ANAADI" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BABADI" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BELGENO" nillable="true" type="xs:string" />
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/KBS_Model" minOccurs="0" name="CINSIYET" type="q8:snfEnum.Cinsiyet" />
+      <xs:element minOccurs="0" name="DOGUMTARIHI" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="GRSTRH" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ILERITARIHLI" type="xs:boolean" />
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/KBS_Model" minOccurs="0" name="KULLANIMSEKLI" type="q9:snfEnum.KonaklayanKullanimSekli" />
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/KBS_Model" minOccurs="0" name="MEDENIHAL" type="q10:snfEnum.MedeniHal" />
+      <xs:element minOccurs="0" name="ODANO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PLKNO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SOYADI" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TELNO" nillable="true" type="xs:string" />
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/KBS_Model" minOccurs="0" name="ULKKOD" type="q11:snfEnum.Ulkeler" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MusteriYabanciGirisTalep" nillable="true" type="tns:MusteriYabanciGirisTalep" />
+  <xs:complexType name="MusteriYabanciGirisSonuc">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ADI" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ANAADI" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BABADI" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BELGENO" nillable="true" type="xs:string" />
+      <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/KBS_Model" minOccurs="0" name="CINSIYET" type="q12:snfEnum.Cinsiyet" />
+      <xs:element minOccurs="0" name="DOGUMTARIHI" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="GRSTRH" type="xs:dateTime" />
+      <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/KBS_Model" minOccurs="0" name="KULLANIMSEKLI" type="q13:snfEnum.KonaklayanKullanimSekli" />
+      <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/KBS_Model" minOccurs="0" name="MEDENIHAL" type="q14:snfEnum.MedeniHal" />
+      <xs:element minOccurs="0" name="ODANO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PLKNO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SOYADI" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TELNO" nillable="true" type="xs:string" />
+      <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/KBS_Model" minOccurs="0" name="ULKKOD" type="q15:snfEnum.Ulkeler" />
+      <xs:element minOccurs="0" name="sonuc" nillable="true" type="tns:Sonuc" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MusteriYabanciGirisSonuc" nillable="true" type="tns:MusteriYabanciGirisSonuc" />
+  <xs:complexType name="MusteriYabanciCikisTalep">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BELGENO" nillable="true" type="xs:string" />
+      <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/KBS_Model" minOccurs="0" name="CKSTIP" type="q16:snfEnum.KonaklayanCikisTurleri" />
+      <xs:element minOccurs="0" name="CKSTRH" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MusteriYabanciCikisTalep" nillable="true" type="tns:MusteriYabanciCikisTalep" />
+  <xs:complexType name="MusteriYabanciGuncelleTalep">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BELGENO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GRSTRH" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ILERITARIHLI" type="xs:boolean" />
+      <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/KBS_Model" minOccurs="0" name="KULLANIMSEKLI" type="q17:snfEnum.KonaklayanKullanimSekli" />
+      <xs:element minOccurs="0" name="ODANO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PLKNO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TELNO" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MusteriYabanciGuncelleTalep" nillable="true" type="tns:MusteriYabanciGuncelleTalep" />
+  <xs:complexType name="MusteriYabanciListe">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="mItems" nillable="true" type="tns:ArrayOfMusteriYabanciGirisSonuc" />
+      <xs:element minOccurs="0" name="sonuc" nillable="true" type="tns:Sonuc" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MusteriYabanciListe" nillable="true" type="tns:MusteriYabanciListe" />
+  <xs:complexType name="ArrayOfMusteriYabanciGirisSonuc">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MusteriYabanciGirisSonuc" nillable="true" type="tns:MusteriYabanciGirisSonuc" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMusteriYabanciGirisSonuc" nillable="true" type="tns:ArrayOfMusteriYabanciGirisSonuc" />
+  <xs:complexType name="PersonelKimlikNoGirisTalep">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BARINMAADRES" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BRUTMAAS" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="EGTBASTAR" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EGTBITTAR" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FOTO" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="GOREVI" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GRSTRH" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IKAMETADRES" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="KIMLIKNO" type="xs:long" />
+      <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/KBS_Model" minOccurs="0" name="PERSONELTUR" type="q18:snfEnum.PrsTurleri" />
+      <xs:element minOccurs="0" name="PLKNO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SGKNO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TELEFON" nillable="true" type="xs:string" />
+      <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/KBS_Model" minOccurs="0" name="ULKKOD" type="q19:snfEnum.Ulkeler" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PersonelKimlikNoGirisTalep" nillable="true" type="tns:PersonelKimlikNoGirisTalep" />
+  <xs:complexType name="PersonelKimlikNoGirisSonuc">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ADI" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ANAADI" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BABADI" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BARINMAADRES" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BRUTMAAS" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="EGTBASTAR" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EGTBITTAR" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FOTO" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="GOREVI" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GRSTRH" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IKAMETADRES" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="KIMLIKNO" type="xs:long" />
+      <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/KBS_Model" minOccurs="0" name="PERSONELTUR" type="q20:snfEnum.PrsTurleri" />
+      <xs:element minOccurs="0" name="PLKNO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SGKNO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SOYADI" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TELEFON" nillable="true" type="xs:string" />
+      <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/KBS_Model" minOccurs="0" name="ULKKOD" type="q21:snfEnum.Ulkeler" />
+      <xs:element minOccurs="0" name="sonuc" nillable="true" type="tns:Sonuc" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PersonelKimlikNoGirisSonuc" nillable="true" type="tns:PersonelKimlikNoGirisSonuc" />
+  <xs:complexType name="PersonelKimlikNoCikisTalep">
+    <xs:sequence>
+      <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/KBS_Model" minOccurs="0" name="AYRILISNEDENI" type="q22:snfEnum.PerCikisTurleri" />
+      <xs:element minOccurs="0" name="AYRILISTRH" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="KIMLIKNO" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PersonelKimlikNoCikisTalep" nillable="true" type="tns:PersonelKimlikNoCikisTalep" />
+  <xs:complexType name="PersonelKimlikNoGuncelleTalep">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BARINMAADRES" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BRUTMAAS" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="EGTBASTAR" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EGTBITTAR" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FOTO" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="GOREVI" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GRSTRH" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IKAMETADRES" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="KIMLIKNO" type="xs:long" />
+      <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/KBS_Model" minOccurs="0" name="PERSONELTUR" type="q23:snfEnum.PrsTurleri" />
+      <xs:element minOccurs="0" name="PLKNO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SGKNO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TELEFON" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PersonelKimlikNoGuncelleTalep" nillable="true" type="tns:PersonelKimlikNoGuncelleTalep" />
+  <xs:complexType name="PersonelKimlikNoListe">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="mItems" nillable="true" type="tns:ArrayOfPersonelKimlikNoGirisSonuc" />
+      <xs:element minOccurs="0" name="sonuc" nillable="true" type="tns:Sonuc" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PersonelKimlikNoListe" nillable="true" type="tns:PersonelKimlikNoListe" />
+  <xs:complexType name="ArrayOfPersonelKimlikNoGirisSonuc">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PersonelKimlikNoGirisSonuc" nillable="true" type="tns:PersonelKimlikNoGirisSonuc" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPersonelKimlikNoGirisSonuc" nillable="true" type="tns:ArrayOfPersonelKimlikNoGirisSonuc" />
+  <xs:complexType name="PersonelYabanciGirisTalep">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ADI" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ANAADI" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BABADI" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BARINMAADRES" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BELGENO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BRUTMAAS" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CALISMAIZNIBELGENO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CALISMAIZNIGECTAR" type="xs:dateTime" />
+      <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/KBS_Model" minOccurs="0" name="CINSIYET" type="q24:snfEnum.Cinsiyet" />
+      <xs:element minOccurs="0" name="DOGUMTARIHI" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EGTBASTAR" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EGTBITTAR" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FOTO" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="GOREVI" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GRSTRH" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IKAMETADRES" nillable="true" type="xs:string" />
+      <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/KBS_Model" minOccurs="0" name="MEDENIHAL" type="q25:snfEnum.MedeniHal" />
+      <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/KBS_Model" minOccurs="0" name="PERSONELTUR" type="q26:snfEnum.PrsTurleri" />
+      <xs:element minOccurs="0" name="PLKNO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SGKNO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SOYADI" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TELEFON" nillable="true" type="xs:string" />
+      <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/KBS_Model" minOccurs="0" name="ULKKOD" type="q27:snfEnum.Ulkeler" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PersonelYabanciGirisTalep" nillable="true" type="tns:PersonelYabanciGirisTalep" />
+  <xs:complexType name="PersonelYabanciGirisSonuc">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ADI" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ANAADI" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BABADI" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BARINMAADRES" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BELGENO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BRUTMAAS" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CALISMAIZNIBELGENO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CALISMAIZNIGECTAR" type="xs:dateTime" />
+      <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/KBS_Model" minOccurs="0" name="CINSIYET" type="q28:snfEnum.Cinsiyet" />
+      <xs:element minOccurs="0" name="DOGUMTARIHI" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EGTBASTAR" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EGTBITTAR" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FOTO" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="GOREVI" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GRSTRH" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IKAMETADRES" nillable="true" type="xs:string" />
+      <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/KBS_Model" minOccurs="0" name="MEDENIHAL" type="q29:snfEnum.MedeniHal" />
+      <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/KBS_Model" minOccurs="0" name="PERSONELTUR" type="q30:snfEnum.PrsTurleri" />
+      <xs:element minOccurs="0" name="PLKNO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SGKNO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SOYADI" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TELEFON" nillable="true" type="xs:string" />
+      <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/KBS_Model" minOccurs="0" name="ULKKOD" type="q31:snfEnum.Ulkeler" />
+      <xs:element minOccurs="0" name="sonuc" nillable="true" type="tns:Sonuc" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PersonelYabanciGirisSonuc" nillable="true" type="tns:PersonelYabanciGirisSonuc" />
+  <xs:complexType name="PersonelYabanciCikisTalep">
+    <xs:sequence>
+      <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/KBS_Model" minOccurs="0" name="AYRILISNEDENI" type="q32:snfEnum.PerCikisTurleri" />
+      <xs:element minOccurs="0" name="AYRILISTRH" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="BELGENO" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PersonelYabanciCikisTalep" nillable="true" type="tns:PersonelYabanciCikisTalep" />
+  <xs:complexType name="PersonelYabanciGuncelleTalep">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BARINMAADRES" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BELGENO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BRUTMAAS" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CALISMAIZNIBELGENO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CALISMAIZNIBELGETAR" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EGTBASTAR" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EGTBITTAR" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FOTO" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="GOREVI" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GRSTRH" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IKAMETADRES" nillable="true" type="xs:string" />
+      <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/KBS_Model" minOccurs="0" name="PERSONELTUR" type="q33:snfEnum.PrsTurleri" />
+      <xs:element minOccurs="0" name="PLKNO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SGKNO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TELEFON" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PersonelYabanciGuncelleTalep" nillable="true" type="tns:PersonelYabanciGuncelleTalep" />
+  <xs:complexType name="PersonelYabanciListe">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="mItems" nillable="true" type="tns:ArrayOfPersonelYabanciGirisSonuc" />
+      <xs:element minOccurs="0" name="sonuc" nillable="true" type="tns:Sonuc" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PersonelYabanciListe" nillable="true" type="tns:PersonelYabanciListe" />
+  <xs:complexType name="ArrayOfPersonelYabanciGirisSonuc">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PersonelYabanciGirisSonuc" nillable="true" type="tns:PersonelYabanciGirisSonuc" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPersonelYabanciGirisSonuc" nillable="true" type="tns:ArrayOfPersonelYabanciGirisSonuc" />
+  <xs:complexType name="Parametreler">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ACIKLAMA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Items" nillable="true" type="tns:ArrayOfParametreler" />
+      <xs:element minOccurs="0" name="KOD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sonuc" nillable="true" type="tns:Sonuc" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Parametreler" nillable="true" type="tns:Parametreler" />
+  <xs:complexType name="ArrayOfParametreler">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Parametreler" nillable="true" type="tns:Parametreler" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfParametreler" nillable="true" type="tns:ArrayOfParametreler" />
+</xs:schema>

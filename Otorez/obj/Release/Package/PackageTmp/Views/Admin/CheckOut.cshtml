@@ -1,0 +1,345 @@
+﻿@model IEnumerable<Otorez.Models.ORM.Entity.AdminModels.Reservation>
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Otorez | Admin Panel</title>
+
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="~/assets/admin/css/style-starter.css">
+
+    <!-- google fonts -->
+    <link href="//fonts.googleapis.com/css?family=Nunito:300,400,600,700,800,900&display=swap" rel="stylesheet">
+</head>
+
+<body class="sidebar-menu-collapsed">
+    <div class="se-pre-con"></div>
+    <section>
+        <!-- sidebar menu start -->
+        <div class="sidebar-menu sticky-sidebar-menu">
+
+            <!-- logo start -->
+            <div class="logo">
+                <h1><a href="index">Otorez</a></h1>
+            </div>
+
+            <!-- if logo is image enable this -->
+            <!-- image logo --
+            <div class="logo">
+              <a href="index.html">
+                <img src="image-path" alt="Your logo" title="Your logo" class="img-fluid" style="height:35px;" />
+              </a>
+            </div>
+            <!-- //image logo -->
+
+            <div class="logo-icon text-center">
+                <a href="/admin/index" title="logo"><img src="~/assets/admin/images/logo.png" alt="logo-icon"> </a>
+            </div>
+            <!-- //logo end -->
+
+            <div class="sidebar-menu-inner">
+
+                <!-- sidebar nav start -->
+                <ul class="nav nav-pills nav-stacked custom-nav">
+                    <li>
+                        <a href="/admin/index"><i class="fa fa-tachometer"></i><span> Raporlar</span></a>
+                    </li>
+                    <li class="menu-list active">
+                        <a href="#">
+                            <i class="fa fa-cogs"></i>
+                            <span>Rezervasyon <i class="lnr lnr-chevron-right"></i></span>
+                        </a>
+                        <ul class="sub-menu-list">
+                            <li><a href="/admin/searchavailability">Müsaitlik Ara</a> </li>
+                            <li><a href="/admin/searchupdate">Ara / Güncelle</a></li>
+                            <li><a href="/admin/payments">Ödeme Takip</a></li>
+                            <li><a href="/admin/checkout">Check Out</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-list">
+                        <a href="#">
+                            <i class="fa fa-cutlery"></i>
+                            <span>Servisler<i class="lnr lnr-chevron-right"></i></span>
+                        </a>
+                        <ul class="sub-menu-list">
+                            <li><a href="/admin/minibar">Minibar</a> </li>
+                            <li><a href="/admin/roomservice">Oda Servisi</a></li>
+                            <li><a href="/admin/restaurantcafe">Resturant / Cafe</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/admin/export"><i class="fa fa-table"></i> <span>Yedekleme</span></a></li>
+
+                </ul>
+                <!-- //sidebar nav end -->
+                <!-- toggle button start -->
+                <a class="toggle-btn">
+                    <i class="fa fa-angle-double-left menu-collapsed__left"><span>Kapat</span></i>
+                    <i class="fa fa-angle-double-right menu-collapsed__right"></i>
+                </a>
+                <!-- //toggle button end -->
+            </div>
+        </div>
+        <!-- //sidebar menu end -->
+        <!-- header-starts -->
+        <div class="header sticky-header">
+            <!-- notification menu start -->
+            <div class="menu-right">
+                <div class="navbar user-panel-top">
+
+                    <div class="user-dropdown-details d-flex">
+                        <div class="profile_details_left">
+                            <ul class="nofitications-dropdown">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                        <i class="fa fa-bell-o"></i><span class="badge blue">@ViewBag.PendingPaymentCount</span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <div class="notification_header">
+                                                <h3 style="color:red;"> @ViewBag.PendingPaymentCount adet ödemesi tamamlanmamış rezervasyonunuz var !</h3>
+                                            </div>
+                                        </li>
+
+                                        <li>
+                                            <div class="notification_bottom">
+                                                <a href="/admin/payments" class="bg-primary">Tüm ödemesi tamamlanmamış rezervasyonları gör!</a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="profile_details">
+                            <ul>
+                                <li class="dropdown profile_details_drop">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="dropdownMenu3" aria-haspopup="true"
+                                       aria-expanded="false">
+                                        <div class="profile_img">
+                                            <img src="~/Assets/Admin/images/avatar.png" class="rounded-circle" alt="" />
+                                            <div class="user-active">
+                                                <span></span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <ul class="dropdown-menu drp-mnu" aria-labelledby="dropdownMenu3">
+                                        <li class="user-info">
+                                            <h5 class="user-name">@ViewBag.CompanyName</h5>
+                                            <span class="status">@ViewBag.EmailAddress</span>
+                                        </li>
+                                        <li> <a href="/admin/accountsettings"><i class="fa fa-user"></i>Hesap Ayarları</a> </li>
+                                        <li> <a href="/admin/hotelsettings"><i class="fa fa-cog"></i>Otel Ayarları</a> </li>
+                                        <li> <a href="/admin/servicesettings"><i class="fa fa-cutlery"></i>Servis Ayarları</a> </li>
+                                        <li class="logout"> <a href="/admin/logout"><i class="fa fa-power-off"></i> Çıkış</a> </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!--notification menu end -->
+        </div>
+        <!-- //header-ends -->
+        <!-- main content start -->
+        <div class="main-content">
+
+            <!-- content -->
+            <div class="container-fluid content-top-gap">
+
+                <!-- breadcrumbs -->
+                <nav aria-label="breadcrumb" class="mb-4">
+                    <ol class="breadcrumb my-breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Anasayfa</a></li>
+                        <li class="breadcrumb-item"><a href="#">Rezervasyon</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Check Out</li>
+                    </ol>
+                </nav>
+                <!-- //breadcrumbs -->
+                <!-- forms 1 -->
+                <div class="card card_border py-2 mb-4">
+                    <div class="card-body">
+                        <h3 class="card__title position-absolute">Çıkış tarihi ile rezervasyon arayın..</h3><br><br>
+                        <form method="post">             
+                            <div class="form-row">                            
+                                <div class="form-group col-md-6">
+                                    <label for="CheckOut" class="input__label">Çıkış Tarihi</label>
+                                    <input type="date" class="form-control input-style" name="CheckOut"
+                                           placeholder="Çıkış Tarihi">
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-style mt-4">Rezervasyon Ara</button>
+                        </form>
+                    </div>
+                </div>
+                <!-- //forms 1 -->
+                <!-- data tables 1 -->
+                <div class="data-tables">
+                    <div class="row">
+                        <div class="col-lg-12 mb-4">
+                            <div class="card card_border p-4">
+                                <p style="color:red;">@ViewBag.NoReservations</p>
+                                <h6 style="color:red;">@ViewBag.ReservationNotSelected</h6>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- data tables 2 -->
+                <div class="data-tables">
+                    <div class="row">
+                        <div class="col-lg-12 mb-4">
+                            <div class="card card_border p-4">
+                                <h3 class="card__title position-absolute">Çıkış yaptırmak istediğiniz rezervasyonu seçiniz..</h3><br><br>
+
+
+                                @using (Html.BeginForm("CheckOutGetSelected", "Admin", FormMethod.Post))
+                                {
+                                    <div class="table-responsive">
+                                        <table id="example" class="display" style="width:100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>Ad-Soyad</th>
+                                                    <th>Oda Kapı Numarası</th>
+                                                    <th>Oda Tipi</th>
+                                                    <th>Giriş Tarihi</th>
+                                                    <th>Çıkış Tarihi</th>
+                                                    <th>Seç</th>
+
+                                                </tr>
+                                            </thead>
+                                            @foreach (var item in Model)
+                                            {
+                                                <tbody>
+                                                    <tr>
+                                                        <td>@item.FirstName @item.LastName</td>
+                                                        <td>@item.RoomNumber</td>
+                                                        <td>@item.RoomType</td>
+                                                        <td>@Html.ValueFor(model => item.CheckIn, "{0:dd/MM/yyyy}") </td>
+                                                        <td>@Html.ValueFor(model => item.CheckOut, "{0:dd/MM/yyyy}")</td>
+                                                        <td>
+                                                            <label class="custom-chbx">
+                                                                <input type="checkbox" name="ReservationID" value="@item.ReservationID">
+                                                                <span class="custom-chmrk"></span>
+                                                            </label>
+                                                        </td>
+                                                      
+
+                                                    </tr>
+                                                </tbody>
+                                            }
+                                        </table>
+                                        <button type="submit" class="btn btn-primary btn-style mt-4">Seçili Rezervasyona Çıkış Yap</button>
+                                    </div>
+
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- //data tables 2-->
+
+
+
+            </div>
+            <!-- //content -->
+        </div>
+        <!-- main content end-->
+    </section>
+    <!--footer section start-->
+    <footer class="dashboard">
+        <p>
+            &copy 2021 Otorez. All Rights Reserved | Design by <a href="https://w3layouts.com/" target="_blank"
+                                                                  class="text-primary">W3layouts.</a>
+        </p>
+    </footer>
+    <!--footer section end-->
+    <!-- move top -->
+    <button onclick="topFunction()" id="movetop" class="bg-primary" title="Go to top">
+        <span class="fa fa-angle-up"></span>
+    </button>
+    <script>
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("movetop").style.display = "block";
+            } else {
+                document.getElementById("movetop").style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+    <!-- /move top -->
+
+
+    <script src="~/assets/admin/js/jquery-3.3.1.min.js"></script>
+    <script src="~/assets/admin/js/jquery-1.10.2.min.js"></script>
+
+    <!-- chart js -->
+    <script src="~/assets/admin/js/Chart.min.js"></script>
+    <script src="~/assets/admin/js/utils.js"></script>
+    <!-- //chart js -->
+    <!-- Different scripts of charts.  Ex.Barchart, Linechart -->
+    <script src="~/assets/admin/js/bar.js"></script>
+    <script src="~/assets/admin/js/linechart.js"></script>
+    <!-- //Different scripts of charts.  Ex.Barchart, Linechart -->
+
+
+    <script src="~/assets/admin/js/jquery.nicescroll.js"></script>
+    <script src="~/assets/admin/js/scripts.js"></script>
+
+    <!-- close script -->
+    <script>
+        var closebtns = document.getElementsByClassName("close-grid");
+        var i;
+
+        for (i = 0; i < closebtns.length; i++) {
+            closebtns[i].addEventListener("click", function () {
+                this.parentElement.style.display = 'none';
+            });
+        }
+    </script>
+    <!-- //close script -->
+    <!-- disable body scroll when navbar is in active -->
+    <script>
+        $(function () {
+            $('.sidebar-menu-collapsed').click(function () {
+                $('body').toggleClass('noscroll');
+            })
+        });
+    </script>
+    <!-- disable body scroll when navbar is in active -->
+    <!-- loading-gif Js -->
+    <script src="~/assets/admin/js/modernizr.js"></script>
+    <script>
+        $(window).load(function () {
+            // Animate loader off screen
+            $(".se-pre-con").fadeOut("slow");;
+        });
+    </script>
+    <!--// loading-gif Js -->
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/assets/admin/js/bootstrap.min.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,326 @@
+﻿@model IEnumerable<Otorez.Models.ORM.Entity.AdminModels.Account>
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <title>Otorez | Super User Panel</title>
+
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="~/assets/admin/css/style-starter.css">
+
+    <!-- google fonts -->
+    <link href="//fonts.googleapis.com/css?family=Nunito:300,400,600,700,800,900&display=swap" rel="stylesheet">
+</head>
+
+<body class="sidebar-menu-collapsed">
+    <div class="se-pre-con"></div>
+    <section>
+        <!-- sidebar menu start -->
+        <div class="sidebar-menu sticky-sidebar-menu">
+
+            <!-- logo start -->
+            <div class="logo">
+                <h1><a href="index">Otorez</a></h1>
+            </div>
+
+            <!-- if logo is image enable this -->
+            <!-- image logo --
+            <div class="logo">
+              <a href="index.html">
+                <img src="image-path" alt="Your logo" title="Your logo" class="img-fluid" style="height:35px;" />
+              </a>
+            </div>
+            <!-- //image logo -->
+
+            <div class="logo-icon text-center">
+                <a href="/superuser/index" title="logo"><img src="~/assets/admin/images/logo.png" alt="logo-icon"> </a>
+            </div>
+            <!-- //logo end -->
+
+            <div class="sidebar-menu-inner">
+
+                <!-- sidebar nav start -->
+                <ul class="nav nav-pills nav-stacked custom-nav">
+                    <li>
+                        <a href="/superuser/index"><i class="fa fa-tachometer"></i><span> Raporlar</span></a>
+                    </li>
+                    <li class="menu-list">
+                        <a href="#">
+                            <i class="fa fa-cogs"></i>
+                            <span>Rezervasyon <i class="lnr lnr-chevron-right"></i></span>
+                        </a>
+                        <ul class="sub-menu-list">
+                            <li><a href="/superuser/createaccount">Hesap Yarat</a> </li>
+                            <li><a href="/superuser/updateaccount">Hesap Güncelle</a></li>
+                            <li><a href="/superuser/payments">Ödeme Takip</a></li>
+                        </ul>
+                    </li>
+                    <li class="active"><a href="/admin/export"><i class="fa fa-table"></i> <span>Yedekleme</span></a></li>
+
+                </ul>
+                <!-- //sidebar nav end -->
+                <!-- toggle button start -->
+                <a class="toggle-btn">
+                    <i class="fa fa-angle-double-left menu-collapsed__left"><span>Kapat</span></i>
+                    <i class="fa fa-angle-double-right menu-collapsed__right"></i>
+                </a>
+                <!-- //toggle button end -->
+            </div>
+        </div>
+        <!-- //sidebar menu end -->
+        <!-- header-starts -->
+        <div class="header sticky-header">
+
+            <!-- notification menu start -->
+            <div class="menu-right">
+                <div class="navbar user-panel-top">
+
+                    <div class="user-dropdown-details d-flex">
+                        <div class="profile_details_left">
+                            <ul class="nofitications-dropdown">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                        <i class="fa fa-bell-o"></i><span class="badge blue">@ViewBag.PendingPaymentCount</span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <div class="notification_header">
+                                                <h3 style="color:red;"> @ViewBag.PendingPaymentCount adet ödemesi tamamlanmamış hesap var !</h3>
+                                            </div>
+                                        </li>
+
+                                        <li>
+                                            <div class="notification_bottom">
+                                                <a href="/superuser/payments" class="bg-primary">Tüm ödemesi tamamlanmamış hesapları gör!</a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="profile_details">
+                            <ul>
+                                <li class="dropdown profile_details_drop">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="dropdownMenu3" aria-haspopup="true"
+                                       aria-expanded="false">
+                                        <div class="profile_img">
+                                            <img src="~/Assets/Admin/images/avatar.png" class="rounded-circle" alt="" />
+                                            <div class="user-active">
+                                                <span></span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <ul class="dropdown-menu drp-mnu" aria-labelledby="dropdownMenu3">
+                                        <li class="user-info">
+                                            <h5 class="user-name">@ViewBag.CompanyName</h5>
+                                            <span class="status">@ViewBag.EmailAddress</span>
+                                        </li>
+                                        <li class="logout"> <a href="/superuser/logout"><i class="fa fa-power-off"></i> Çıkış</a> </li>
+
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!--notification menu end -->
+        </div>
+        <!-- //header-ends -->
+        <!-- main content start -->
+        <div class="main-content">
+
+            <!-- content -->
+            <div class="container-fluid content-top-gap">
+
+                <!-- breadcrumbs -->
+                <nav aria-label="breadcrumb" class="mb-4">
+                    <ol class="breadcrumb my-breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Anasayfa</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Yedekleme</li>
+                    </ol>
+                </nav>
+                <!-- //breadcrumbs -->
+                <!-- data tables 2 -->
+                <div class="data-tables">
+                    <div class="row">
+                        <div class="col-lg-12 mb-4">
+                            <div class="card card_border p-4">
+                                <h3 class="card__title position-absolute">Tüm hesapları excel formatında yedekleyin..</h3><br><br>
+
+                                @using (Html.BeginForm("ExportToExcel", "SuperUser", FormMethod.Post))
+                                {
+
+                                    <div class="table-responsive">
+                                        <table id="example" class="display" style="width:100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>Ad-Soyad</th>
+                                                    <th>Telefon</th>
+                                                    <th>E-Posta</th>
+                                                    <th>Otel İsmi</th>
+                                                    <th>Hesap Durumu</th>
+                                                    <th>Hesap Yaratılma Tarihi</th>
+                                                    <th>Demo Başlangıç Tarihi</th>
+                                                    <th>Demo Bitiş Tarihi</th>
+                                                    <th>Hesap Başlangıç Tarihi</th>
+                                                    <th>Hesap Bitiş Tarihi</th>
+                                                    <th>Üyelik Durumu</th>
+                                                    <th>Ödeme Tipi</th>
+                                                    <th>Ödeme Durumu</th>
+                                                    <th>Ödeme Tutarı</th>
+                                                    <th>Para Birimi</th>
+
+                                                    <th> </th>
+
+                                                </tr>
+                                            </thead>
+                                            @foreach (var item in Model)
+                                            {
+                                                <tbody>
+                                                    <tr>
+                                                        <td>@item.FirstName @item.LastName</td>
+                                                        <td>@item.PhoneNumber</td>
+                                                        <td>@item.EmailAddress</td>
+                                                        <td>@item.CompanyName</td>
+                                                        @{
+                                                            if (item.AccountStatus == "Demo")
+                                                            {
+                                                                <td><span class="badge badge-@ViewBag.DemoBadge">@ViewBag.DemoText</span></td>
+                                                            }
+                                                            else
+                                                            {
+                                                                <td><span class="badge badge-@ViewBag.LiveBadge">@ViewBag.LiveText</span></td>
+                                                            }
+                                                        }
+                                                        <td>@Html.ValueFor(model => item.AccountCreationDate, "{0:dd/MM/yyyy}") </td>
+                                                        <td>@Html.ValueFor(model => item.DemoStartDate, "{0:dd/MM/yyyy}") </td>
+                                                        <td>@Html.ValueFor(model => item.DemoEndDate, "{0:dd/MM/yyyy}") </td>
+                                                        <td>@Html.ValueFor(model => item.AccountStartDate, "{0:dd/MM/yyyy}") </td>
+                                                        <td>@Html.ValueFor(model => item.AccountEndDate, "{0:dd/MM/yyyy}") </td>
+                                                        <td>@item.MembershipStatus</td>
+                                                        <td>@item.PaymentType</td>
+                                                        <td>@item.PaymentStatus</td>
+                                                        <td>@item.PaymentAmount</td>
+                                                        <td>@item.Currency</td>
+
+
+                                                    </tr>
+                                                </tbody>
+                                            }
+                                        </table>
+                                        <button type="submit" class="btn btn-primary btn-style mt-4">Hesapları Yedekle</button>
+                                    </div>
+
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- //data tables 2-->
+
+
+
+            </div>
+            <!-- //content -->
+        </div>
+        <!-- main content end-->
+    </section>
+    <!--footer section start-->
+    <footer class="dashboard">
+        <p>
+            &copy 2021 Otorez. All Rights Reserved | Design by <a href="https://w3layouts.com/" target="_blank"
+                                                                  class="text-primary">W3layouts.</a>
+        </p>
+    </footer>
+    <!--footer section end-->
+    <!-- move top -->
+    <button onclick="topFunction()" id="movetop" class="bg-primary" title="Go to top">
+        <span class="fa fa-angle-up"></span>
+    </button>
+    <script>
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("movetop").style.display = "block";
+            } else {
+                document.getElementById("movetop").style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+    <!-- /move top -->
+
+
+    <script src="~/assets/admin/js/jquery-3.3.1.min.js"></script>
+    <script src="~/assets/admin/js/jquery-1.10.2.min.js"></script>
+
+    <!-- chart js -->
+    <script src="~/assets/admin/js/Chart.min.js"></script>
+    <script src="~/assets/admin/js/utils.js"></script>
+    <!-- //chart js -->
+    <!-- Different scripts of charts.  Ex.Barchart, Linechart -->
+    <script src="~/assets/admin/js/bar.js"></script>
+    <script src="~/assets/admin/js/linechart.js"></script>
+    <!-- //Different scripts of charts.  Ex.Barchart, Linechart -->
+
+
+    <script src="~/assets/admin/js/jquery.nicescroll.js"></script>
+    <script src="~/assets/admin/js/scripts.js"></script>
+
+    <!-- close script -->
+    <script>
+        var closebtns = document.getElementsByClassName("close-grid");
+        var i;
+
+        for (i = 0; i < closebtns.length; i++) {
+            closebtns[i].addEventListener("click", function () {
+                this.parentElement.style.display = 'none';
+            });
+        }
+    </script>
+    <!-- //close script -->
+    <!-- disable body scroll when navbar is in active -->
+    <script>
+        $(function () {
+            $('.sidebar-menu-collapsed').click(function () {
+                $('body').toggleClass('noscroll');
+            })
+        });
+    </script>
+    <!-- disable body scroll when navbar is in active -->
+    <!-- loading-gif Js -->
+    <script src="~/assets/admin/js/modernizr.js"></script>
+    <script>
+        $(window).load(function () {
+            // Animate loader off screen
+            $(".se-pre-con").fadeOut("slow");;
+        });
+    </script>
+    <!--// loading-gif Js -->
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/assets/admin/js/bootstrap.min.js"></script>
+
+
+</body>
+
+</html>
