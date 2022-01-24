@@ -16,7 +16,7 @@ namespace Otorez.Models.ORM.Context.ProjectContext
         public ProjectContext()
         {
            
-            Database.Connection.ConnectionString = @"Server=DESKTOP-PHNMJO1\SQLEXPRESS; DataBase=Otorez; User Id=; Password=;";
+            Database.Connection.ConnectionString = @"Server=; DataBase=Otorez; User Id=; Password=;";
         }
 
         //Home
