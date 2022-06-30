@@ -22,7 +22,7 @@ namespace Otorez.Models.TriggerEmail.HomeEmails
                 EnableSsl = false,
                 DeliveryMethod = SmtpDeliveryMethod.Network,
                 UseDefaultCredentials = false,
-                Credentials = new NetworkCredential(fromAddress.Address, "Otorez@Help369")
+                Credentials = new NetworkCredential(fromAddress.Address, "")
                 //trololol kısmı e-posta adresinin şifresi
             })
 
